@@ -1,0 +1,7 @@
+{
+  "name": "BookShelf",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
