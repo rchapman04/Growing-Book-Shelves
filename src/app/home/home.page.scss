@@ -1,3 +1,7 @@
+ion-toolbar{
+  --background: rgb(124, 124, 198);
+  color: black;
+}
 ion-content{
   --background: rgb(60, 60, 139);
 }
@@ -16,9 +20,10 @@ ion-content{
 .shelf{
   height: 100px;
   width: 300px;
-  border: 10px solid brown;
-  background-color: black;
-  justify-content: center;
+  border: 10px solid rgb(91, 44, 32);
+  background-color: rgb(111, 78, 55);
+  box-shadow: 4px 5px 8px rgba(0, 0, 0, 0.2) inset; // Used to create inset of shelf
+  justify-content: left;
   display: flex;
   position: relative;
 }
@@ -34,6 +39,8 @@ ion-content{
   font-size: x-small;
   padding-top: 5px;
   transition: transform 0.5s ease;
+  border: 2px solid black;
+  border-radius: 3px;
 
   &:hover{
     cursor: pointer;
