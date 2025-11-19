@@ -22,3 +22,14 @@ ion-content{
   display: flex;
   position: relative;
 }
+
+.book{
+  height: 80px;
+  width: 20px;
+  background-color: rgb(37, 117, 37);
+  display: flex;
+  position:absolute;
+  text-orientation: mixed;
+  writing-mode: vertical-rl;
+  font-size: x-small;
+}
