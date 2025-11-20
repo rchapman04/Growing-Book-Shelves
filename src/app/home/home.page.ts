@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/standalone';
-import { PopoverController } from '@ionic/angular/standalone';
-import { PopoverContentComponent } from '../popover-content/popover-content.component';
+import { BookModalComponent } from '../book-modal/book-modal.component';
+import { ModalController } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +11,7 @@ import { PopoverContentComponent } from '../popover-content/popover-content.comp
 })
 
 export class HomePage {
-  constructor(private popoverCtrl: PopoverController) {}
+  constructor(private modalCtrl: ModalController) {}
 
   ngAfterViewInit(){
     const books = document.querySelectorAll(".book")
@@ -25,18 +25,14 @@ export class HomePage {
   }
 
   async openPopover(title: string){
-    const popover = await this.popoverCtrl.create({
-      component: PopoverContentComponent,
+    const modal = await this.modalCtrl.create({
+      component: BookModalComponent,
       componentProps: {
         title,
-        description: "This is a book",
-      },
-      alignment: "center",
-      showBackdrop: true,
-      backdropDismiss: true,
+        description: `This book is ${title}`
+      },      
     })
-
-    await popover.present()
+    await modal.present()
   }
 
 }

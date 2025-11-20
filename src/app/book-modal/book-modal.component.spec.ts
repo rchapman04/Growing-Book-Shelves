@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { PopoverContentComponent } from './popover-content.component';
+import { BookModalComponent } from './book-modal.component';
 
-describe('PopoverContentComponent', () => {
-  let component: PopoverContentComponent;
-  let fixture: ComponentFixture<PopoverContentComponent>;
+describe('BookModalComponent', () => {
+  let component: BookModalComponent;
+  let fixture: ComponentFixture<BookModalComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ PopoverContentComponent ],
+      declarations: [ BookModalComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(PopoverContentComponent);
+    fixture = TestBed.createComponent(BookModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
