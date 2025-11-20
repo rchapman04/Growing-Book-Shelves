@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/standalone';
+import { BookModalComponent } from '../book-modal/book-modal.component';
+import { ModalController } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +9,30 @@ import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/stan
   styleUrls: ['home.page.scss'],
   imports: [IonHeader, IonToolbar, IonTitle, IonContent],
 })
+
 export class HomePage {
-  constructor() {}
+  constructor(private modalCtrl: ModalController) {}
+
+  ngAfterViewInit(){
+    const books = document.querySelectorAll(".book")
+
+    books.forEach(book => {
+      book.addEventListener("click", () => {
+        const title = book.textContent || "null"
+        this.openPopover(title)
+      })
+    })
+  }
+
+  async openPopover(title: string){
+    const modal = await this.modalCtrl.create({
+      component: BookModalComponent,
+      componentProps: {
+        title,
+        description: `This book is ${title}`
+      },      
+    })
+    await modal.present()
+  }
+
 }
