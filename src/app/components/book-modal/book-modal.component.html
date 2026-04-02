@@ -1,11 +1,12 @@
 <div class="bookInside">
   <div>
-    <h1> {{ title }}</h1>
-    <h3> Author</h3>
+    <h1> Title: {{ book?.title }}</h1>
+    <h3> Author: {{ book?.author }}</h3>
   </div>
   <div>
+    <h3>Notes</h3>
     <p>
-      {{ description }}
+      {{ book?.notes }}
     </p>
   </div>
 </div>

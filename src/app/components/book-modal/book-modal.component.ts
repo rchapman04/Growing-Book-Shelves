@@ -6,6 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./book-modal.component.scss'],
 })
 export class BookModalComponent {
-  @Input() title!: string;
-  @Input() description!: string;
+  @Input() book: any;
 }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonIcon, IonButtons } from '@ionic/angular/standalone';
 import { BookModalComponent } from '../components/book-modal/book-modal.component';
 import { ModalController } from '@ionic/angular/standalone';
@@ -9,36 +10,31 @@ import { AddBookModalComponent } from '../components/add-book-modal/add-book-mod
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonIcon, IonButtons],
+  imports: [CommonModule, IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonIcon, IonButtons],
 })
 
 export class HomePage {
+
+  //Initialize the Icon for Adding Books
   constructor(private modalCtrl: ModalController) {
     addIcons({addCircleOutline})
   }
 
-  ngAfterViewInit(){
-    const books = document.querySelectorAll(".book")
+  //Array of Books
+  books: any[] = []
 
-    books.forEach(book => {
-      book.addEventListener("click", () => {
-        const title = book.textContent || "null"
-        this.openPopover(title)
-      })
-    })
-  }
-
-  async openPopover(title: string){
+  //Book Details popover modal
+  async openPopover(book: any){
     const modal = await this.modalCtrl.create({
       component: BookModalComponent,
       componentProps: {
-        title,
-        description: `This book is ${title}`
+        book,
       },      
     })
     await modal.present()
   }
 
+  //Add book modal
   async openAddBook(){
     const modal = await this.modalCtrl.create({
       component: AddBookModalComponent,
@@ -46,8 +42,10 @@ export class HomePage {
     await modal.present()
 
     const { data } = await modal.onDidDismiss()
+    //If data exists, push it onto the books array
     if (data){
-      console.log('New Book:', data)
+      this.books.push(data)
+      console.log(this.books)
     }
   }
 

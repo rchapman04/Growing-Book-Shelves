@@ -12,7 +12,8 @@
 <ion-content [fullscreen]="true">
   <div class="topContainer">
     <div class="shelf">
-      <div class="book">Treasure Island</div>
+      <div class="book" *ngFor="let book of books" (click)="openPopover(book)">
+        {{book.title}}</div>
     </div>
     <div class="shelf">
     </div>
