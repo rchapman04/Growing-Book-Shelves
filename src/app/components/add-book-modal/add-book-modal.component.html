@@ -1,3 +1,14 @@
-<p>
-  add-book-modal works!
-</p>
+<div>
+  <ion-header>
+    <ion-toolbar>
+      <ion-button slot="start" fill="clear" (click)="cancel()">Cancel</ion-button>
+      <ion-button slot="end" fill="clear" (click)="submit()">Submit</ion-button>
+    </ion-toolbar>
+  </ion-header>
+  <p>
+    <ion-input [(ngModel)]="bookForm.title" placeholder="Title"></ion-input>
+    <ion-input [(ngModel)]="bookForm.author" placeholder="Author"></ion-input>
+    <ion-input [(ngModel)]="bookForm.notes" placeholder="Notes"></ion-input>
+    <ion-input [(ngModel)]="bookForm.genre" placeholder="Genre"></ion-input>
+  </p>
+</div>

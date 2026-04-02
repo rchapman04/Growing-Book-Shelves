@@ -4,6 +4,7 @@ import { BookModalComponent } from '../components/book-modal/book-modal.componen
 import { ModalController } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { addCircleOutline } from 'ionicons/icons';
+import { AddBookModalComponent } from '../components/add-book-modal/add-book-modal.component';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -38,8 +39,16 @@ export class HomePage {
     await modal.present()
   }
 
-  addBook(){
+  async openAddBook(){
+    const modal = await this.modalCtrl.create({
+      component: AddBookModalComponent,
+    })
+    await modal.present()
 
+    const { data } = await modal.onDidDismiss()
+    if (data){
+      console.log('New Book:', data)
+    }
   }
 
 }
