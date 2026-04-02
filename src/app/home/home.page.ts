@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonIcon, IonButtons } from '@ionic/angular/standalone';
-import { BookModalComponent } from '../book-modal/book-modal.component';
+import { BookModalComponent } from '../components/book-modal/book-modal.component';
 import { ModalController } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { addCircleOutline } from 'ionicons/icons';
@@ -39,7 +39,7 @@ export class HomePage {
   }
 
   addBook(){
-    
+
   }
 
 }
