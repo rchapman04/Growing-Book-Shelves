@@ -1,6 +1,11 @@
 <ion-header>
       <ion-toolbar>
-        <ion-title>Reid's Library</ion-title>
+        <ion-title slot="start">Reid's Library</ion-title>
+        <ion-buttons slot="end">
+          <ion-button fill="clear" color="dark" class="button" (click)="addBook()">
+            <ion-icon slot="icon-only" name="add-circle-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
       </ion-toolbar>
     </ion-header>
 
